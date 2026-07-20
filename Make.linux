@@ -81,9 +81,9 @@ HPLlib       = $(LIBdir)/libhpl.a
 # header files,  MPlib  is defined  to be the name of  the library to be 
 # used. The variable MPdir is only used for defining MPinc and MPlib.
 #
-MPdir        = /pkg/mpi/gcc-11.2.0/openmpi/5.0.2
-MPinc        = /pkg/mpi/gcc-11.2.0/openmpi/5.0.2/include
-MPlib        = /pkg/mpi/gcc-11.2.0/openmpi/5.0.2/lib64/libmpi.so
+MPdir        = $(spack location -i openmpi@5.0.10)
+MPinc        = $(MPdir)/include
+MPlib        = $(MPdir)/lib64/libmpi.so
 #
 # ----------------------------------------------------------------------
 # - Linear Algebra library (BLAS or VSIPL) -----------------------------
@@ -92,7 +92,7 @@ MPlib        = /pkg/mpi/gcc-11.2.0/openmpi/5.0.2/lib64/libmpi.so
 # header files,  LAlib  is defined  to be the name of  the library to be 
 # used. The variable LAdir is only used for defining LAinc and LAlib.
 #
-LAdir        = $(HOME)/OpenBLAS-0.3.29/build
+LAdir        = $(spack location -i openblas@0.3.33)
 LAinc        = $(LAdir)/include
 LAlib        = -lblas
 #

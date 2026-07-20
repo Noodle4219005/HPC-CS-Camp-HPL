@@ -2,20 +2,24 @@
 
 #SBATCH --job-name=compile-openblas
 #SBATCH --nodes=1
-#SBATCH --time=00:30:00
-#SBATCH --partition=ct112
-#SBATCH --account=GOV115003
-#SBATCH --ntasks=112
+#SBATHC -c 8
+#SBATCH --time=00:05:00
+#SBATCH --partition=cscamp
+
+exit
+
+# FIXME: This script is no need to be used
 
 date
 cd $HOME
-module load gcc/11.2.0
-module load openmpi/5.0.2
 
-cp /work1/koying0523/share/2025-Winter-Camp/OpenBLAS-0.3.29.tar.gz $HOME
+source /share/cscamp/load_spack.sh
+spack load openmpi@5.0.10
+
+cp /share/cscamp/OpenBLAS-0.3.29.tar.gz $HOME
 tar xf OpenBLAS-0.3.29.tar.gz
 cd OpenBLAS-0.3.29 && rm -fr build
 mkdir -p build && cd build
 CC=mpicc CXX=mpicxx FC=mpifort cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/OpenBLAS-0.3.29/build
-make install -j 112
+make install -j 8
 date

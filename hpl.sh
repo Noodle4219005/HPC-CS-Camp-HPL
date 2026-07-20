@@ -1,19 +1,20 @@
-#!/usr/bin/bash
+#!/usr/bin/env -S bash
 
 #SBATCH --job-name=compile-hpl
-#SBATCH --nodes=1
-#SBATCH --time=00:30:00
-#SBATCH --partition=ct112
-#SBATCH --account=GOV115003
+#SBATCH -n 1
+#SBATCH -c 8
+#SBATCH --time=00:05:00
+#SBATCH --partition=cscamp
 
 date
 cd $HOME
-module load gcc/11.2.0
-module load openmpi/5.0.2
+
+source /share/cscamp/load_spack.sh
+spack load openmpi@5.0.10 openblas@0.3.33
 
 cd ~/HPL
 
-cp /work1/koying0523/share/2025-Winter-Camp/hpl-2.3.tar.gz .
+cp /home/user/noodlesk/cscamp-share/hpl-2.3.tar.gz .
 tar xvf hpl-2.3.tar.gz && cd hpl-2.3/setup
 sh make_generic
 cd ../
