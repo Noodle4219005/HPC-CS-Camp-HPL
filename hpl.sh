@@ -1,6 +1,7 @@
 #!/usr/bin/env -S bash
 
 #SBATCH --job-name=compile-hpl
+#SBATCH -o compile-hpl.log
 #SBATCH -n 1
 #SBATCH -c 8
 #SBATCH --time=00:05:00
@@ -14,7 +15,7 @@ spack load openmpi@5.0.10 openblas@0.3.33
 
 cd ~/HPL
 
-cp /home/user/noodlesk/cscamp-share/hpl-2.3.tar.gz .
+cp /share/cscamp/hpl-2.3.tar.gz .
 tar xvf hpl-2.3.tar.gz && cd hpl-2.3/setup
 sh make_generic
 cd ../
