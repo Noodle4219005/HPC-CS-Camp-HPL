@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env -S bash
 
 #SBATCH --job-name=run_hpl
 #SBATCH -o run_hpl.log
@@ -8,9 +8,13 @@
 #SBATCH --time=00:05:00
 #SBATCH --partition=cscamp
 
-cd $HOME/HPL/hpl-2.3/bin/linux
+export PATH="$HOME/HPL/:$PATH"
 
-source /share/cscamp/load_spack.sh
-spack load openmpi@5.0.10 openblas@0.3.33
+#TODO: Try to change the following values
+#NOTE: 注意等於符號(=)的前後都不能有空格
+N=4096
+NB=64
+P=4
+Q=2
 
-mpirun -np ${SLURM_NTASKS} --oversubscribe ./xhpl
+hpl-wrapper.sh $N $NB $P $Q
