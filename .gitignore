@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+
+# Camp fair-use wrapper: ship ONLY the obfuscated C source (.x.c). Never commit
+# the plaintext script, the shc-generated local binary, or the compiled wrapper
+# so the enforced limits cannot be read or edited by students.
+.wrapper/hpl-wrapper.sh
+.wrapper/hpl-wrapper.sh.x
+/hpl-wrapper

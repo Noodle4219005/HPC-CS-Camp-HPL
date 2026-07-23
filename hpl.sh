@@ -23,4 +23,10 @@ cp ~/HPL/Make.linux .
 
 make arch=linux
 
+# Build the tamper-resistant fair-use wrapper from its shc-obfuscated source.
+# Only the compiled binary (~/HPL/hpl-wrapper) is used at run time; the enforced
+# limits (<=4 processes, 90s runtime) live inside it and are not editable.
+cc -O2 -o "$HOME/HPL/hpl-wrapper" "$HOME/HPL/.wrapper/hpl-wrapper.sh.x.c"
+chmod 755 "$HOME/HPL/hpl-wrapper"
+
 date
