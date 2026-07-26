@@ -81,7 +81,7 @@ HPLlib       = $(LIBdir)/libhpl.a
 # header files,  MPlib  is defined  to be the name of  the library to be
 # used. The variable MPdir is only used for defining MPinc and MPlib.
 #
-MPdir        = /share/cscamp/spack/opt/spack/linux-zen4/openmpi-5.0.10-5ab66zg5nt6eea65omc3ni7dkzcefshk
+MPdir        = /share/hpc-camp/spack/opt/spack/linux-zen4/openmpi-5.0.10-ze2ahe3zq2ytyv4zojmtrro7wy5v6jn5
 MPinc        = $(MPdir)/include
 MPlib        = $(MPdir)/lib/libmpi.so
 #
@@ -92,7 +92,7 @@ MPlib        = $(MPdir)/lib/libmpi.so
 # header files,  LAlib  is defined  to be the name of  the library to be
 # used. The variable LAdir is only used for defining LAinc and LAlib.
 #
-LAdir        = /share/cscamp/spack/opt/spack/linux-zen4/openblas-0.3.33-eap6d6eukm5r4m5dwh4fodjk5rfhimu2
+LAdir        = /share/hpc-camp/spack/opt/spack/linux-zen4/openblas-0.3.33-eap6d6eukm5r4m5dwh4fodjk5rfhimu2
 LAinc        = $(LAdir)/include
 LAlib        = -lblas
 #
