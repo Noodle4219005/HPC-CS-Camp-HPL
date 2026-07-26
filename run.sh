@@ -5,7 +5,7 @@
 #SBATCH -N 1
 #SBATCH -c 1
 #SBATCH --time=00:05:00
-#SBATCH --partition=cscamp
+#SBATCH --partition=camp
 
 export PATH="$HOME/HPL/:$PATH"
 
